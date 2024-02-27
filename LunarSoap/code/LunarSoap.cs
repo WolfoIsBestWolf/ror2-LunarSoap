@@ -30,8 +30,8 @@ namespace LunarSoap
         {
             ItemDef RandomlyLunar = LegacyResourcesAPI.Load<ItemDef>("ItemDefs/RandomlyLunar");
             ItemTierDef LunarTierDef = LegacyResourcesAPI.Load<ItemTierDef>("ItemTierDefs/LunarTierDef");
-            PickupModel = PrefabAPI.InstantiateClone(RandomlyLunar.pickupModelPrefab, "LunarSoapPickup");
-            DisplayItem = PrefabAPI.InstantiateClone(new GameObject(), "DisplayLunarSoap");
+            PickupModel = PrefabAPI.InstantiateClone(RandomlyLunar.pickupModelPrefab, "LunarSoapPickup", false);
+            DisplayItem = PrefabAPI.InstantiateClone(new GameObject(), "DisplayLunarSoap", false);
             CreatePickupModel();
 
             LanguageAPI.Add("ITEM_LUNARSOAP_NAME", "Temporal Soap");
