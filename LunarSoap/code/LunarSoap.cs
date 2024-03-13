@@ -66,7 +66,9 @@ namespace LunarSoap
             ItemDef.pickupModelPrefab = PickupModel;
             ItemDef.tags = new ItemTag[]
             {
-                ItemTag.Utility
+                ItemTag.Utility,
+                ItemTag.CannotCopy,
+                ItemTag.AIBlacklist,
             };
 
             ItemDisplayRuleDict DisplayRules = MakeItemDisplays();
@@ -77,7 +79,7 @@ namespace LunarSoap
             On.RoR2.CharacterBody.RecalculateStats += Stats_VariantWalkSpeed;
             LanguageAPI.Add("ITEM_LUNARSOAP_DESC", "Increases <style=cIsUtility>maxiumum walk speed</style> by <style=cIsUtility>100%</style> <style=cStack>(+40% per stack)</style>. " +
                 "<style=cIsUtility>Reduces acceleration and deceleration by 80%</style> <style=cStack>(+20% per stack)</style>. " +
-                "Acceleration no longer scales with movement speed. Reduces mass by 33%.");
+                "Acceleration no longer scales with movement speed.");
 
 
             On.RoR2.CharacterBody.OnInventoryChanged += (orig, self) =>
@@ -252,8 +254,7 @@ namespace LunarSoap
                     //self.acceleration = self.baseAcceleration * 2 / (5f + 1f * (num));
                     if (self.isSprinting)
                     {
-                        //self.acceleration /= 1.3f;
-                        self.acceleration *= 0.75f;
+                        self.acceleration *= 0.875f;
                     }
                 }
             }
@@ -477,7 +478,8 @@ namespace LunarSoap
             }
             if (this.body.characterMotor)
             {
-                body.characterMotor.mass /= 1.5f;
+                body.characterMotor.airControl *= 2;
+                //body.characterMotor.mass /= 1.5f;
             }
         }
 
@@ -491,6 +493,7 @@ namespace LunarSoap
                 {
                     this.body.characterMotor.walkSpeedPenaltyCoefficient = 1;
                     this.body.characterMotor.mass = og.mass;
+                    this.body.characterMotor.airControl = og.airControl;
                 }
             }
         }
