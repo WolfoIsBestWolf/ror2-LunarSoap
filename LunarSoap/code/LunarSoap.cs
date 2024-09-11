@@ -17,7 +17,7 @@ using MonoMod.Cil;
 namespace LunarSoap
 {
     [BepInDependency("com.bepis.r2api")]
-    [BepInPlugin("Wolfo.LunarSoap", "LunarSoap", "1.0.0")]
+    [BepInPlugin("Wolfo.LunarSoap", "LunarSoap", "1.0.3")]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
 
     public class LunarSoap : BaseUnityPlugin
@@ -28,6 +28,8 @@ namespace LunarSoap
 
         public void Awake()
         {
+            //VoidSpareDroneParts.Start();
+
             ItemDef RandomlyLunar = LegacyResourcesAPI.Load<ItemDef>("ItemDefs/RandomlyLunar");
             ItemTierDef LunarTierDef = LegacyResourcesAPI.Load<ItemTierDef>("ItemTierDefs/LunarTierDef");
             PickupModel = PrefabAPI.InstantiateClone(RandomlyLunar.pickupModelPrefab, "LunarSoapPickup", false);
@@ -46,7 +48,7 @@ namespace LunarSoap
                 "If this delivery ever reaches the writing team they better come up with a new slogan for this new soap because we're fresh out of ideas over here. Maybe make a joke about Chiralium we're sure someone would appreciate that.");
             //
             Texture2D SoapIcon = new Texture2D(128, 128, TextureFormat.DXT5, false);
-            SoapIcon.LoadImage(Properties.Resources.Icon, true);
+            SoapIcon.LoadImage(Properties.Resources.IconSoap, true);
             SoapIcon.filterMode = FilterMode.Bilinear;
             SoapIcon.wrapMode = TextureWrapMode.Clamp;
             Sprite SoapIconS = Sprite.Create(SoapIcon, new Rect(0, 0, 128, 128), new Vector2(0.5f, 0.5f));
@@ -267,7 +269,7 @@ namespace LunarSoap
             GameObject PillarFull = LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/MoonBatteryBlood");
             GameObject PillarCube = PillarFull.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).gameObject;
 
-            GameObject CrabFoam1 = Addressables.LoadAssetAsync<GameObject>(key: "RoR2/Base/arena/CrabFoam1Prop.prefab").WaitForCompletion();
+            GameObject CrabFoam1 = Addressables.LoadAssetAsync<GameObject>(key: "RoR2/Base/arena/Arena_CrabFoam.prefab").WaitForCompletion();
 
             GameObject FullArtifactFormulaDisplay = Addressables.LoadAssetAsync<GameObject>(key: "RoR2/Base/artifactworld/ArtifactFormulaDisplay.prefab").WaitForCompletion();
             GameObject ArtifactHolder = FullArtifactFormulaDisplay.transform.FindChild("ArtifactFormulaHolderMesh").gameObject;

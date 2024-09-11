@@ -12,6 +12,7 @@ Yeah the item is a brick but I hope it still looks fitting among the other Lunar
 # 
 ### Changelog
 ```
+v1.0.3 - Fixed for Sots\
 v1.0.2 - Fixed storepage image being gone due to Discord.
 -Item no longer reduces mass so you'll take less knockback.
 -Item is no longer given to Turrets.

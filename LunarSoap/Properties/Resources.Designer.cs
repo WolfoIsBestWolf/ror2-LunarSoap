@@ -63,9 +63,19 @@ namespace LunarSoap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] Icon {
+        public static byte[] IconDrone {
             get {
-                object obj = ResourceManager.GetObject("Icon", resourceCulture);
+                object obj = ResourceManager.GetObject("IconDrone", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] IconSoap {
+            get {
+                object obj = ResourceManager.GetObject("IconSoap", resourceCulture);
                 return ((byte[])(obj));
             }
         }

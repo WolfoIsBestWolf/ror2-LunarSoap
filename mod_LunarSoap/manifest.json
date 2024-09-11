@@ -1,6 +1,6 @@
 {
     "name": "LunarSoap",
-    "version_number": "1.0.2",
+    "version_number": "1.0.3",
     "website_url": "https://github.com/WolfoIsBestWolf/ror2-LunarSoap",
     "description": "Adds 1 Lunar Item : Doubled movement speed... BUT movement is harder to control.",
     "dependencies": [
